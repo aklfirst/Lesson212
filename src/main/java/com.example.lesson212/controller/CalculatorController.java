@@ -25,7 +25,6 @@ public class CalculatorController {
 
     public String plus(@RequestParam(name = "num1") Integer a,
                        @RequestParam(name = "num2") Integer b) {
-        if (a == 0 || b == 0) return "Один или оба входных параметров не должны быть равны нулю!";
         int plus = calculatorService.plus(a, b);
         return a + " + " + b + " = " + plus;
     }
@@ -34,7 +33,6 @@ public class CalculatorController {
 
     public String minus(@RequestParam(name = "num1") Integer a,
                         @RequestParam(name = "num2") Integer b) {
-        if (a == 0 || b == 0) return "Один или оба входных параметров не должны быть равны нулю!";
         int minus = calculatorService.minus(a, b);
         return a + " - " + b + " = " + minus;
     }
@@ -43,7 +41,6 @@ public class CalculatorController {
 
     public String multiple(@RequestParam(name = "num1") Integer a,
                            @RequestParam(name = "num2") Integer b) {
-        if (a == 0 || b == 0) return "Один или оба входных параметров не должны быть равны нулю!";
         int multiple = calculatorService.multiple(a, b);
         return a + " * " + b + " = " + multiple;
     }
@@ -52,15 +49,7 @@ public class CalculatorController {
 
     public String divide(@RequestParam(name = "num1") Integer a,
                          @RequestParam(name = "num2") Integer b) {
-        if (a == 0 || b == 0) return "Один или оба входных параметров не должны быть равны нулю!";
-        double divide;
-
-        try {
-            divide = calculatorService.divide(a, b);
-        } catch (Throwable e) {
-            return e.getMessage();
-        }
-
+        double divide = calculatorService.divide(a, b);
         return a + " / " + b + " = " + divide;
     }
 
