@@ -1,5 +1,6 @@
 package com.example.lesson212.service;
 
+import com.example.lesson212.DivideByZeroException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,6 +10,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public int plus(Integer a, Integer b) {
+
         return a + b;
     }
 
@@ -25,7 +27,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public double divide(Integer a, Integer b) {
         if (b == 0) {
-            throw new IllegalArgumentException("На ноль делить нельзя!");
+            throw new DivideByZeroException("На ноль делить нельзя!");
         }
         return (double) a / b;
     }
